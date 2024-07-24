@@ -2,13 +2,16 @@ import { Component, OnInit} from '@angular/core';
 import { Moment } from '../../../Moment';
 import { MomentService } from '../../../services/moment.service';
 import { environment } from '../../../../environments/environment';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    NgFor
+    NgFor,
+    NgIf,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -17,7 +20,7 @@ export class HomeComponent {
 
   public allMoments: Moment[] = [];
   public  moments: Moment[] = [];
-  public baseApiUrl = this.momentService.url
+  public baseApiUrl = this.momentService.urlT
 
   constructor (private momentService: MomentService) {}
 

@@ -9,7 +9,8 @@ import { Response } from '../Response';
 })
 export class MomentService {
 
-  public url: string = 'http://localhost:3333/api/moments'
+  public urlT: string = 'http://localhost:3333/'
+  public url: string =`${this.urlT}api/moments`
 
   constructor( private http: HttpClient ) { }
 
