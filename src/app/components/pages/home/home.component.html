@@ -1,6 +1,10 @@
 <div class="home-container">
     <h1>Veja o que estão compartilhando</h1>
-    <!--form de bsuca-->
+    <div class="search-container">
+        <form>
+            <input type="text" placeholder="ou Busque por um momento..." (input)="search($event)" >
+        </form>
+    </div>
     <div *ngIf=" moments.length > 0; else noMoments">
         <div class="moments-container">
             <div class="moment" *ngFor="let moment of moments">

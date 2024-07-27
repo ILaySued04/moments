@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Moment } from '../../../Moment';
 import { MomentService } from '../../../services/moment.service';
-import { environment } from '../../../../environments/environment';
 import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -22,6 +21,8 @@ export class HomeComponent {
   public  moments: Moment[] = [];
   public baseApiUrl = this.momentService.urlT
 
+  searchTerm: string = ''
+
   constructor (private momentService: MomentService) {}
 
   ngOnInit(): void {
@@ -36,6 +37,13 @@ export class HomeComponent {
     })
   }
 
-  // todo seach
+  public search(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+    
+    this.moments = this.allMoments.filter(item => {
+      return item.title && item.title.toLowerCase().includes(value.toLowerCase());
+    });
+  }
 
 }
