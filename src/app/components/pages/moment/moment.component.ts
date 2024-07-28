@@ -15,6 +15,8 @@ import { NgIf } from '@angular/common';
 export class MomentComponent implements OnInit {
   moment?: Moment;
 
+  public baseApiUrl = this.momentService.urlT
+
   constructor(private momentService: MomentService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {

@@ -1,3 +1,18 @@
 <div class="moment">
     <h1>{{moment?.title}}</h1>
+    <img src="{{baseApiUrl}}uploads/{{moment?.image}}" alt="{{ moment?.title }}">
+    <div class="about-moment">
+        <h3>Sobre este momento:</h3>
+        <p>{{ moment?.description }}</p>
+    </div>
+    <div class="actions">
+        <h3>Ações: </h3>
+        <a href="/moments/edit/{{moment?.id}}" class="edit-btn">
+            <i class="fa-regular fa-pen-to-square"></i> Editar </a>
+        <button class="remove-btn"> <i class="fa-regular fa-square-minus"></i> Excluir</button>
+    </div>
+    <!-- TODO Comentários -->
+    <div class="comments">
+        <p>Comentários (0):</p>
+    </div>
 </div>
