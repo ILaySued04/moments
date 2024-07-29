@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Moment } from '../../../Moment';
 import { MomentService } from '../../../services/moment.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-moment',
   standalone: true,
   imports: [
+    RouterLink
   ],
   templateUrl: './moment.component.html',
   styleUrls: ['./moment.component.css']
@@ -28,8 +29,8 @@ export class MomentComponent implements OnInit {
     this.momentService.getMoment(id).subscribe((item) => this.moment = item.data);
   }
 
-  removeHandler(id: number) {
-   this.momentService.removeMoment(id).subscribe();
+  async removeHandler(id: number) {
+   await this.momentService.removeMoment(id).subscribe();
 
     this.router.navigate(['/']);
   }

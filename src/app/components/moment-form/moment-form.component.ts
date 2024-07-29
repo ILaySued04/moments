@@ -19,11 +19,14 @@ export class MomentFormComponent {
   @Output() onSubmit = new EventEmitter<Moment>()
   @Input() btnText!: string;
 
+  @Input() momentData: Moment | null = null;
+
   private formBuilder = inject(FormBuilder)
 
   protected momentForm = this.formBuilder.group({
-    title: ['', Validators.required],
-    description: ['', Validators.required],
+    id: [this.momentData ? this.momentData.id : ''],
+    title: [this.momentData ? this.momentData.title : '', Validators.required],
+    description: [this.momentData ? this.momentData.description : '', Validators.required],
     image: [null as File | null],
   })
 
