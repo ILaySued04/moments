@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Moment } from '../../../Moment';
 import { MomentService } from '../../../services/moment.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-moment',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgIf,
+    NgFor
   ],
   templateUrl: './moment.component.html',
   styleUrls: ['./moment.component.css']
